@@ -1,0 +1,76 @@
+body{
+    margin: 0;
+    height: 100vh;
+    width: 100vw; 
+}
+
+header{
+    height: 18%;
+    width: 100%;
+    display: flex;
+}
+
+.leftHead{
+    height: 100%;
+    width: 20%;
+    background-color: green;
+}
+
+.midHead{
+    height: 100%;
+    width: 60%;
+    background-color: yellow;
+}
+
+.rightHead{
+    height: 100%;
+    width: 20%;
+    background-color: grey;
+}
+
+.main{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+table{
+    width: 90%;
+    height: 100%;
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 5%;
+}
+
+#cat{
+    background-color: green;
+    height: 10%;
+}
+
+#mess{
+    background-color: yellow;
+}
+
+#derMess{
+    background-color: grey;
+}
+
+.td1{
+    width: 50%;
+}
+
+.td2{
+    width: 25%;
+}
+
+.td3{
+    width: 25%;
+}
+
+.popup{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}

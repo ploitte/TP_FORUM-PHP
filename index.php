@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Accueil</title>
-</head>
-<body>
-    <!-- ____________________HEADER____________________ -->
+<?php
+    include("models/fonction.php");
 
-</body>
-</html>
+    if(isset($_GET['page'])){
+        $page = $_GET['page'];
+    }else 
+    {
+        $page = "accueil";
+    }
+
+
+    switch($page){
+
+    case "accueil":
+
+    $cat = takeCat("nom", "f_categories");
+    break;
+    }
+
+  include("views/Accueil.php");
+?>
