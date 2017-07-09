@@ -1,21 +1,26 @@
 <?php
     include("models/fonction.php");
 
-    if(isset($_GET['page'])){
-        $page = $_GET['page'];
-    }else 
-    {
-        $page = "accueil";
-    }
-
+    $page = getPage();
 
     switch($page){
 
-    case "accueil":
+        case "inscription":
+            include("views/form_inscription.php");
+            break;
 
-    $cat = takeCat("nom", "f_categories");
-    break;
-    }
+        case "connexion":
 
-  include("views/Accueil.php");
+            include("views/form_connexion.php");
+            break;
+
+        case "accueil":
+            
+            $cat = takeCat("nom", "f_categories");
+            include("views/Accueil.php");
+            break;
+
+        }
+
+
 ?>
