@@ -1,4 +1,7 @@
+<?php 
 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +38,9 @@
     </div>
 
     <div class="rightHead">
+    <span><?php echo $username; ?></span><br>
+    <a href="./services/deconnexion.php">Se deconnecter</a><br>
+    <a href="./index.php?page=profil">Profil</a>
     </div>
 
 
@@ -46,7 +52,7 @@
         <tr id = "cat">
             <td class = "td1"><h2>Categorie</h2></td>
             <td class = "td2"><h2>Nombre de Post</h2></td>
-            <td class = "td3"><h2>Dernier Post </h2></td>
+            <td class = "td3"><h2>Dernier Post</h2></td>
         </tr>
         
         <?php 

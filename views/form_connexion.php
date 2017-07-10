@@ -11,9 +11,11 @@
 
     <form action="./services/connexion.php" method = "POST">
         <input id="user" type="text" name = "username" placeholder="Username"><br>
-        <input id="mdp" type="text" name = "password" placeholder="Password"><br>
+        <input id="mdp" type="password" name = "password" placeholder="Password"><br>
         <div id="sub" class="cont_button"><input type="submit" value='Connexion'></div>
     </form>
+
+    <div></div>
 
 </body>
 </html>

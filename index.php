@@ -1,4 +1,8 @@
 <?php
+    
+    session_start();
+    
+
     include("models/fonction.php");
 
     $page = getPage();
@@ -15,11 +19,16 @@
             break;
 
         case "accueil":
-            
+            $tab =  getUsers();
             $cat = takeCat("nom", "f_categories");
+            $username = $_SESSION['username'];
             include("views/Accueil.php");
             break;
 
+        case "profil":
+
+            include("views/profil.php");
+            break;
         }
 
 

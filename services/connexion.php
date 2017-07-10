@@ -20,17 +20,18 @@
             if($exist == 1)
             {
                     $userinfo = $pdo -> fetch();
-                    $_SESSION['id'] = $userinfo["id"];
                     $_SESSION['username'] = $userinfo["username"];
                     $_SESSION['mail'] = $userinfo["email"];  
                     $flag = true;
+            } else{
+                $erreur = "Pas bon";
             }
         }
     }
 
     if($flag == true)
     {
-        header("location: ../index.php?page=accueil&id=". $_SESSION["id"]);
+        header("location: ../index.php?page=accueil&id=". $_SESSION["username"]);
     }else{
         header("location: ../index.php?page=connexion");
     }

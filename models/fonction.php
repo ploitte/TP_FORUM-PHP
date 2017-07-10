@@ -1,7 +1,7 @@
 <?php
 
     function connectToBdd(){
-        $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=UTF8','root','');
+        $bdd = new PDO('mysql:host=localhost;dbname=forum;charset=UTF8','root','root');
         return $bdd;
     }
 
@@ -37,6 +37,19 @@
 
         return $exist;
     }
+
+    function getUsers(){
+         if(isset($_GET['username']))
+        {
+            $user = $_GET['username'];
+            $connect = connectToBdd();
+            $pdo = $connect -> prepare("SELECT username, email FROM users WHERE username = ?");
+            $pdo -> execute(array($user));
+            return $pdo;
+        }    
+    } 
+
+
 
 
 
