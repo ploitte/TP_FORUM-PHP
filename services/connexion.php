@@ -20,6 +20,7 @@
             if($exist == 1)
             {
                     $userinfo = $pdo -> fetch();
+                    $_SESSION['id'] = $userinfo["id"];
                     $_SESSION['username'] = $userinfo["username"];
                     $_SESSION['mail'] = $userinfo["email"];  
                     $flag = true;
@@ -31,7 +32,7 @@
 
     if($flag == true)
     {
-        header("location: ../index.php?page=accueil&id=". $_SESSION["username"]);
+        header("location: ../index.php?page=lobby&id=". $userinfo["id"]);
     }else{
         header("location: ../index.php?page=connexion");
     }

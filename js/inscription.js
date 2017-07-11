@@ -31,7 +31,7 @@ $("#sub").click(function(e){
         if(pseudo.val().length == 0)
             {
                 pseudo.css("border", "2px solid red");
-                $(".errorPseudo").html("Champ vide").css("color", "red");
+                pseudo.prepend("Champ vide").css("color", "red");
             }
         else if(pseudo.val().length < 4)
         {

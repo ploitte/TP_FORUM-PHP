@@ -15,10 +15,16 @@
          return $page;
     }
 
-    function takeCat($table, $bdd){
+    function takeCat(){
         $connect = connectToBdd();
-        $pdo = $connect -> prepare("SELECT $table FROM $bdd");
+        $pdo = $connect -> prepare("SELECT * FROM f_categories ORDER BY nom");
         $pdo -> execute(array());
+        return $pdo;
+    }
+
+    function takeSousCat(){
+        $connect = connectToBdd();
+        $pdo = $connect -> prepare("SELECT * FROM f_sous_categories WHERE id_categories = ?  ORDER BY nom");
         return $pdo;
     }
 
@@ -49,6 +55,13 @@
         }    
     } 
 
+    function insertPost($arg1, $arg2){
+        
+        $connect = connectToBdd($arg1, $arg2);
+        $pdo = $connect -> prepare("INSERT INTO f_post(sujet, texte) VALUES(?, ?)");
+        return $pdo -> execute(array($arg1, $arg2));
+
+    }
 
 
 

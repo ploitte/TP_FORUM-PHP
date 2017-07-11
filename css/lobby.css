@@ -1,0 +1,89 @@
+body{
+    margin: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-color: darkcyan;
+    position: relative;
+}
+
+header{
+    height: 18%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left{
+    width: 20%; 
+    height: 100%;
+    background-color: tomato;
+}
+
+.mid{
+    width: 60%;
+    height: 100%;
+    background-color: grey;
+}
+
+.right{
+    width: 20%;
+    height: 100%;
+    background-color: tomato;
+}
+
+.main{
+    height: 82%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.col{
+    height: 40%;
+    width: 40%;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    box-shadow: 0 0 20px 0;
+    border-radius: 10%;
+}
+
+
+span{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+.left img{
+    height: 50px;
+    width: 50px;
+}
+
+.popup{
+    height: 50%;
+    width: 40%;
+    background-color: grey;
+    position: absolute;  
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 23%; 
+    left: 30%;
+}
+
+.popup form{
+    display: flex;
+    flex-direction: column;
+}
+
+.popup form input{
+    margin: 5px;
+}
