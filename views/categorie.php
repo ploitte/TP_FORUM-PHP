@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script stlye="text/javascript" src="./js/jquery.js"></script>
-    <script stlye="text/javascript" src="./js/easing.js"></script>
-    <link rel="stylesheet" href="./css/lobby.css">
-    <title>Lobby</title>
+    <link rel="stylesheet" href="./css/categorie.css">
+    <title>Categorie</title>
 </head>
 <body>
 
-
-   
 <!--____________________HEADER____________________-->
 
 <header>
@@ -28,27 +24,25 @@
 </header>
 
 <!--____________________MAIN____________________-->
+
 <div class="main">
     
-    <table border="1">  
+    <table border="1">
         <tr>
-            <td class="cat">Categorie</td>
+            <td class="cat">Catégorie</td>
+            <td class="cat">Nb de Sujet</td>
+            <td class="cat"> Dernier Sujet</td>
         </tr>
-        <?php while($c = $cat -> fetch()){?>
+    <?php foreach($sCat as $c){  ?>
         <tr>
-            <td>
-                <span><a href="./index.php?page=categorie&id=<?php echo $c['id']; ?>"> <?php echo $c['nom']; ?> </a></span> 
-            </td>
+            <td><span><a href="./index.php?page=sujet&souscat=<?php echo $c['id']; ?>"> <?php echo $c['nom'];?> </a></span></td>
         </tr>
-        <?php } ?>    
+    <?php } ?>
     </table>
 
 </div>
 
-
-
 <!--____________________FOOTER____________________-->
-
-<script type="text/javascript" src="./js/inscription.js"></script> 
+    
 </body>
 </html>

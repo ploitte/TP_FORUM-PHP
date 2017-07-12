@@ -22,8 +22,16 @@
             include("views/lobby.php");
             break;
 
-        }
+        case "categorie":
+            $sCat = takeSousCatV2($_GET['id']);
+            include("views/categorie.php");
+            break;
 
-       
+        case "sujet":
+            $sujet = searchSujet($_GET['souscat']);
+            include("views/sujet.php");
+            break;
+
+    }
 
 ?>

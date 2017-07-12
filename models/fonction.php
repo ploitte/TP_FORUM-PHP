@@ -14,6 +14,7 @@
                 }
          return $page;
     }
+    //_____________________CATEGORIE_______________________ 
 
     function takeCat(){
         $connect = connectToBdd();
@@ -22,11 +23,16 @@
         return $pdo;
     }
 
-    function takeSousCat(){
+
+    function takeSousCatV2($id){
         $connect = connectToBdd();
-        $pdo = $connect -> prepare("SELECT * FROM f_sous_categories WHERE id_categories = ?  ORDER BY nom");
-        return $pdo;
+        $pdo = $connect->prepare('SELECT * FROM f_sous_categories WHERE id_categories = ?  ORDER BY nom');
+        $pdo -> execute(array($id));
+        $sousCat = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        return $sousCat;
     }
+
+//_____________________INSCRIPTION_______________________ 
 
     function inscription($arg1, $arg2, $arg3){
         $connect = connectToBdd();
@@ -44,29 +50,20 @@
         return $exist;
     }
 
-    function getUsers(){
-         if(isset($_GET['username']))
-        {
-            $user = $_GET['username'];
-            $connect = connectToBdd();
-            $pdo = $connect -> prepare("SELECT username, email FROM users WHERE username = ?");
-            $pdo -> execute(array($user));
-            return $pdo;
-        }    
-    } 
+//_____________________SUJET_______________________ 
 
-    function insertPost($arg1, $arg2){
-        
-        $connect = connectToBdd($arg1, $arg2);
-        $pdo = $connect -> prepare("INSERT INTO f_post(sujet, texte) VALUES(?, ?)");
-        return $pdo -> execute(array($arg1, $arg2));
+function insertSujet($arg1, $arg2, $arg3){
+    $connect = connectToBdd();
+    $pdo = $connect -> prepare("INSERT INTO f_sujet(pseudo, titre, texte) VALUES(?, ?, ?)");
+    $pdo -> execute(array($arg1, $arg2, $arg3));
+}
 
+    function searchSujet($id){
+        $connect = connectToBdd();
+        $pdo = $connect -> prepare("SELECT * FROM f_sujet WHERE id_souscategorie = ? ORDER BY s_date");
+        $pdo -> execute(array($id));
+        $sujet = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        return $sujet;
     }
-
-
-
-
-
-    
 
 ?>

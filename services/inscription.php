@@ -54,7 +54,7 @@ if( isset($_POST["username"])
 
             if($flag == true)
             {
-                header("location: ../index.php?page=lobby");
+                header("location: ../index.php?page=connexion");
             }else{
                   header("location: ../index.php?page=lobby"); 
             }

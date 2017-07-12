@@ -19,9 +19,12 @@
             <input id="mdp" type="password"  name = "password" placeholder="Password"><span class="errorPassword"></span>
             <input id="verMdp" type="password" name = "verifPassword" placeholder="Password verification"><span class="errorVeriPass"></span>
             <div class="cont_button"><input id="sub" type="submit"></div></td></tr>
-
+            <br><a href="./index.php?page=connexion">Connexion</a>
         </form>
+        
     </div>
+
+    
 
 <script type="text/javascript" src="./js/inscription.js"></script>
 </body>

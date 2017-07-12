@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:8889
--- Généré le :  Mar 11 Juillet 2017 à 17:05
+-- Généré le :  Mer 12 Juillet 2017 à 16:52
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.1
 
@@ -38,30 +38,6 @@ INSERT INTO `f_categories` (`id`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `f_post`
---
-
-CREATE TABLE `f_post` (
-  `id` int(11) NOT NULL,
-  `id_createur` int(11) NOT NULL,
-  `sujet` text NOT NULL,
-  `texte` text NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `f_post`
---
-
-INSERT INTO `f_post` (`id`, `id_createur`, `sujet`, `texte`, `date`) VALUES
-(1, 0, 'Les mouches en été', 'Elles font chier', '2017-07-11 14:28:41'),
-(2, 0, 'les bretzels', 'C\'est bon les bretzels', '2017-07-11 14:51:19'),
-(3, 0, 'Salut les compagnie', 'Hello', '2017-07-11 14:56:46'),
-(4, 0, 'Les mouches en été', 'sdfsdfsdf', '2017-07-11 14:57:00');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `f_sous_categories`
 --
 
@@ -85,7 +61,46 @@ INSERT INTO `f_sous_categories` (`id`, `id_categories`, `nom`) VALUES
 (7, 2, 'Pubg'),
 (8, 2, 'Bf1'),
 (9, 2, 'Dofus'),
-(10, 2, 'Csgo');
+(10, 2, 'Csgo'),
+(11, 3, 'Rap'),
+(12, 3, 'Classique'),
+(13, 3, 'Electro'),
+(14, 3, 'Jazz'),
+(15, 3, 'Rock'),
+(16, 4, 'Chiens'),
+(17, 4, 'Chats'),
+(18, 4, 'Chevaux'),
+(19, 4, 'Oiseaux'),
+(20, 4, 'Poissons');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `f_sujet`
+--
+
+CREATE TABLE `f_sujet` (
+  `id` int(11) NOT NULL,
+  `id_souscategorie` int(11) NOT NULL,
+  `pseudo` varchar(255) NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `texte` text NOT NULL,
+  `s_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `f_sujet`
+--
+
+INSERT INTO `f_sujet` (`id`, `id_souscategorie`, `pseudo`, `titre`, `texte`, `s_date`) VALUES
+(11, 0, 'Lucas', 'sdfsdf', 'sdfsdfsdf', '2017-07-12 16:22:07'),
+(12, 0, 'Lucas', 'sdfsdf', 'sdfsdfsdf', '2017-07-12 16:22:23'),
+(13, 0, 'Lucas', 'efsdfsdf', 'sdfsdfsdf', '2017-07-12 16:23:03'),
+(14, 0, 'Lucas', 'qsdqsd', 'qsdqsdqsd', '2017-07-12 16:24:03'),
+(15, 0, 'Lucas', 'qsdqsdqsd', 'qsdqsdqsd', '2017-07-12 16:24:46'),
+(16, 0, 'Lucas', 'qsdqsdqsd', 'qsdqsdqsd', '2017-07-12 16:25:22'),
+(17, 0, 'Lucas', 'sdfsdfsdfsdfs', 'sdfsdfsdf', '2017-07-12 16:29:01'),
+(18, 0, 'Lucas', 'fsdfsdf', 'sdfsdfsdf', '2017-07-12 16:29:55');
 
 -- --------------------------------------------------------
 
@@ -107,7 +122,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `date`) VALUES
 (1, 'Lucas', 'lucrosinol@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d', '2017-07-10 15:21:31'),
-(2, 'etherium', 'eth@bittrex.com', '24acc94e740c36bd1d8a701883b40f4ca06e1442', '2017-07-10 15:43:28');
+(2, 'etherium', 'eth@bittrex.com', '24acc94e740c36bd1d8a701883b40f4ca06e1442', '2017-07-10 15:43:28'),
+(3, 'Michel', 'michmich@gmail.com', 'b05719858da1f0f47b294571114d5381a2bb9543', '2017-07-12 09:02:05'),
+(4, 'james', 'james@gmail.com', '5ba987ef5ef188ddef6ef47fd0f870220b218041', '2017-07-12 09:59:56'),
+(5, 'jacky', 'jacky@gmail.com', 'bc50b0eb5a9195fe98b2ff07888b9a5a65a5c8d5', '2017-07-12 12:19:41');
 
 --
 -- Index pour les tables exportées
@@ -120,17 +138,17 @@ ALTER TABLE `f_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `f_post`
---
-ALTER TABLE `f_post`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `f_sous_categories`
 --
 ALTER TABLE `f_sous_categories`
   ADD PRIMARY KEY (`id`,`id_categories`),
   ADD KEY `id_categories` (`id_categories`);
+
+--
+-- Index pour la table `f_sujet`
+--
+ALTER TABLE `f_sujet`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `users`
@@ -146,22 +164,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `f_categories`
 --
 ALTER TABLE `f_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT pour la table `f_post`
---
-ALTER TABLE `f_post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `f_sous_categories`
 --
 ALTER TABLE `f_sous_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT pour la table `f_sujet`
+--
+ALTER TABLE `f_sujet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Contraintes pour les tables exportées
 --

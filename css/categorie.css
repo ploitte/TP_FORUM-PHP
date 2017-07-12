@@ -37,6 +37,26 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.col{
+    height: 40%;
+    width: 40%;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: olive;
+    box-shadow: 0 0 20px 0;
+    border-radius: 10%;
+}
+
+
+span{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 table{
@@ -58,10 +78,3 @@ table tr td a{
    text-decoration: none;
    color: black;
 }
-
-span {
-    color: white;
-    font-size: 50px;
-    font-weight: bold;
-}
-
