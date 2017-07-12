@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:8889
--- Généré le :  Ven 07 Juillet 2017 à 16:55
+-- Généré le :  Mar 11 Juillet 2017 à 17:05
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.1
 
@@ -31,23 +31,33 @@ CREATE TABLE `f_categories` (
 
 INSERT INTO `f_categories` (`id`, `nom`) VALUES
 (1, 'Programmmation'),
-(2, 'Jeux Vidéo');
+(2, 'Jeux Vidéo'),
+(3, 'Musique'),
+(4, 'Animaux');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `f_messages`
+-- Structure de la table `f_post`
 --
 
-CREATE TABLE `f_messages` (
+CREATE TABLE `f_post` (
   `id` int(11) NOT NULL,
-  `id_topic` int(11) NOT NULL,
-  `id_posteur` int(11) NOT NULL,
-  `date_post` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_edition` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `meilleur_reponse` int(1) NOT NULL,
-  `contenu` text NOT NULL
+  `id_createur` int(11) NOT NULL,
+  `sujet` text NOT NULL,
+  `texte` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `f_post`
+--
+
+INSERT INTO `f_post` (`id`, `id_createur`, `sujet`, `texte`, `date`) VALUES
+(1, 0, 'Les mouches en été', 'Elles font chier', '2017-07-11 14:28:41'),
+(2, 0, 'les bretzels', 'C\'est bon les bretzels', '2017-07-11 14:51:19'),
+(3, 0, 'Salut les compagnie', 'Hello', '2017-07-11 14:56:46'),
+(4, 0, 'Les mouches en été', 'sdfsdfsdf', '2017-07-11 14:57:00');
 
 -- --------------------------------------------------------
 
@@ -80,43 +90,24 @@ INSERT INTO `f_sous_categories` (`id`, `id_categories`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `f_suivis`
+-- Structure de la table `users`
 --
 
-CREATE TABLE `f_suivis` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_topic` int(11) NOT NULL
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `f_topics`
+-- Contenu de la table `users`
 --
 
-CREATE TABLE `f_topics` (
-  `id` int(11) DEFAULT NULL,
-  `id_createur` int(11) NOT NULL,
-  `sujet` text NOT NULL,
-  `contenu` text NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `resolu` int(1) NOT NULL,
-  `notif_createur` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `f_topics_categorie`
---
-
-CREATE TABLE `f_topics_categorie` (
-  `id` int(11) NOT NULL,
-  `id_topic` int(11) NOT NULL,
-  `id_categorie` int(11) NOT NULL,
-  `id_souscategorie` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `date`) VALUES
+(1, 'Lucas', 'lucrosinol@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d', '2017-07-10 15:21:31'),
+(2, 'etherium', 'eth@bittrex.com', '24acc94e740c36bd1d8a701883b40f4ca06e1442', '2017-07-10 15:43:28');
 
 --
 -- Index pour les tables exportées
@@ -129,9 +120,9 @@ ALTER TABLE `f_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `f_messages`
+-- Index pour la table `f_post`
 --
-ALTER TABLE `f_messages`
+ALTER TABLE `f_post`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -142,15 +133,9 @@ ALTER TABLE `f_sous_categories`
   ADD KEY `id_categories` (`id_categories`);
 
 --
--- Index pour la table `f_suivis`
+-- Index pour la table `users`
 --
-ALTER TABLE `f_suivis`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `f_topics_categorie`
---
-ALTER TABLE `f_topics_categorie`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -161,27 +146,22 @@ ALTER TABLE `f_topics_categorie`
 -- AUTO_INCREMENT pour la table `f_categories`
 --
 ALTER TABLE `f_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT pour la table `f_messages`
+-- AUTO_INCREMENT pour la table `f_post`
 --
-ALTER TABLE `f_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `f_post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `f_sous_categories`
 --
 ALTER TABLE `f_sous_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT pour la table `f_suivis`
+-- AUTO_INCREMENT pour la table `users`
 --
-ALTER TABLE `f_suivis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `f_topics_categorie`
---
-ALTER TABLE `f_topics_categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Contraintes pour les tables exportées
 --
