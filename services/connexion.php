@@ -13,6 +13,10 @@
         if(!empty($pseudo) 
         AND !empty($password))
         {
+            /*
+             * Alfonso: il faudrait mettre ce select dans les fonctions
+             * également
+             * */
             $pdo = $connect -> prepare("SELECT * FROM users WHERE username = ? AND password = ?");
             $pdo -> execute(array($pseudo, $password));
             $exist = $pdo -> rowCount();
