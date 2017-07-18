@@ -1,4 +1,21 @@
 /*
 * Alfonso: Bravo tu as compris le fonctionnement de laplupart des choses
 * Il te reste à être plus productif
+*
+* Alfonso update: il y avait un merge qui était en suspend ce qui provoquait une erreur dans ton projet
+* Tu as bien compris la logique MVC dans ton cas tu as bien saisi le fonctionnement du modèle ce qui a posé
+* beaucoup de problème à laplupart des élèves.
+*
+* Tu as du chercher sur internet quand tu étais bloqué. Aussi tu as compliqué ta tache avec l'histoire
+* des catégories, sous-catégories et sous-sous-catégories. Ben oui c'est toujours pratique quand on peut
+* faire un tutoriel sur les chats. lulz
+*
+* Ceci peut-être handicapant car même pour les programmeurs expérimentés ceci peu poser problèmes.
+* Il faut faire la prochaine fois un schema SQL pour pouvoir faire une analyze de ce que tu vas faire en tout cas
+* pour les premières tables. Ensuite au fûr et à mesure tu rajoutes des tables.
+* Peut-être trop mélanger les tutos aussi peut te courcircuiter si tu es en mode production.
+*
+* Tu as produits peut mais tu as compris beaucoup de choses d'un coup. le MVC l'insertion en base de données
+* Ce que doivent faire les services. Ce qui n'est pas toujours le cas de certaines personnes qui sont plus avancées.
+* En tout cas bravo pour tes efforts. Tu as beaucoup progressé.
 */

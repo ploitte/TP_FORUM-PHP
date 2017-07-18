@@ -31,9 +31,6 @@
             include("views/sujet.php");
             break;
 
-<<<<<<< HEAD
     }
-=======
->>>>>>> c9da14c009913f3db7f69baa3d07011be476f47e
 
 ?>

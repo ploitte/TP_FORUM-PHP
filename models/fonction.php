@@ -53,6 +53,11 @@
 //_____________________SUJET_______________________ 
 
 function insertSujet($arg1, $arg2, $arg3){
+    /**
+     * Alfonso: je pense qu'un petit retour d'un $pdo->rowCount() (comme dans le cours) aurait été judicieux
+     * On veut toujours savoir si les insertions en base de données ont effectivement eu lieux. ou il y a eu un
+     * problème. (Ce qui arrive rarement).
+     */
     $connect = connectToBdd();
     $pdo = $connect -> prepare("INSERT INTO f_sujet(pseudo, titre, texte) VALUES(?, ?, ?)");
     $pdo -> execute(array($arg1, $arg2, $arg3));
